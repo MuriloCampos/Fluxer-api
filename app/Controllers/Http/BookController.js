@@ -56,6 +56,14 @@ class BookController {
     return book
   }
 
+  async showBook ({ request }) {
+    const name = request.get('name')
+    // const book = await Book.query().where('name', book_name).fetch()
+    const book = await Book.findBy('name', name)
+
+    return book
+  }
+
   /**
    * Update book details.
    * PUT or PATCH books/:id

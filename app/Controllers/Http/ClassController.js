@@ -19,8 +19,9 @@ class ClassController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index () {
-    const classes = await Class.query().with('user').with('book').fetch()
+  async index ({ request }) {
+    const user_id = request.header('user_id')
+    const classes = await Class.query().where('user_id', user_id).with('book').fetch()
 
     return classes
   }

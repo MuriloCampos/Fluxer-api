@@ -14,5 +14,7 @@ Route.group(() => {
   Route.put('users/:id', 'UserController.update')
   Route.post('files', 'FileController.store')
   Route.resource('books', 'BookController').apiOnly()
+  Route.get('bookname', 'BookController.showBook')
   Route.resource('classes', 'ClassController').apiOnly()
+  Route.resource('history', 'HistoryController').apiOnly()
 }).middleware(['auth'])

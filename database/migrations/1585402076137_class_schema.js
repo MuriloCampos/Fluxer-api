@@ -14,6 +14,13 @@ class ClassSchema extends Schema {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
+      table
+        .integer('book_id')
+        .unsigned()
+        .references('id')
+        .inTable('books')
+        .onUpdate('CASCADE')
+        .onDelete('SET NULL')
       table.integer('group').notNullable()
       table.string('time').notNullable()
       table.timestamps()
